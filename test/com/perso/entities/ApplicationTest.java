@@ -1,5 +1,6 @@
 package com.perso.entities;
 
+import com.perso.entities.Application;
 import org.junit.Test;
 
 import java.util.stream.Stream;

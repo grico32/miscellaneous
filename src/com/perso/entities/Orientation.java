@@ -2,7 +2,6 @@ package com.perso.entities;
 
 import java.util.Arrays;
 import java.util.Optional;
-import java.util.function.Predicate;
 
 /**
  * Created by edarce on 09/03/2017.

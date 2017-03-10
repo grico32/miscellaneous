@@ -1,6 +1,5 @@
 package com.perso.entities;
 
-import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 

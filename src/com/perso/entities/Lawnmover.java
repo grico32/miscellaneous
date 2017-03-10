@@ -1,7 +1,5 @@
 package com.perso.entities;
 
-import java.util.HashMap;
-
 /**
  * Created by edarce on 09/03/2017.
  */
