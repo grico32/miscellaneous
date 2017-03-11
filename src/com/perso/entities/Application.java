@@ -1,5 +1,9 @@
 package com.perso.entities;
 
+import com.perso.position.Area;
+import com.perso.position.Coordinates;
+import com.perso.position.Orientation;
+
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
@@ -17,10 +21,7 @@ public class Application {
     public void process(Stream<String> stream )
 
     {
-        final Area[] area = {null};
-
         stream.forEach(new P());
-
     }
 
     class P implements Consumer<String>
@@ -45,7 +46,7 @@ public class Application {
             else {
                 String[] split = s.split(" ");
 
-                lawnmover = new Lawnmover(Integer.valueOf(split[0]),Integer.valueOf(split[1]),Orientation.from(split[2]),area);
+                lawnmover = new Lawnmover(Integer.valueOf(split[0]),Integer.valueOf(split[1]), Orientation.from(split[2]),area);
             }
         }
     }

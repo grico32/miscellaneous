@@ -1,9 +1,9 @@
 package com.perso.entities;
 
-import com.perso.entities.Area;
-import com.perso.entities.Coordinates;
-import com.perso.entities.Lawnmover;
-import com.perso.entities.Orientation;
+import com.perso.position.Coordinates;
+import com.perso.position.Orientation;
+import com.perso.position.Area;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -26,16 +26,16 @@ public class LawnmoverTest {
         lawnmover.move("GAGAGAGAA");
 
       //  lawnmover.move('G');
-        System.out.println(lawnmover.getCoordinates());
 
-        assertEquals(new Coordinates(1,3), lawnmover.getCoordinates());
-        assertEquals(Orientation.North, lawnmover.getOrientation());
+
+        Assert.assertEquals(new Coordinates(1,3), lawnmover.getPosition().getCoordinates());
+        Assert.assertEquals(Orientation.North, lawnmover.getPosition().getOrientation());
 
         lawnmover= new Lawnmover(3,3, Orientation.East,area);
         lawnmover.move("AADAADADDA");
 
-        assertEquals(new Coordinates(5,1), lawnmover.getCoordinates());
-        assertEquals(Orientation.East, lawnmover.getOrientation());
+        Assert.assertEquals(new Coordinates(5,1), lawnmover.getPosition().getCoordinates());
+        Assert.assertEquals(Orientation.East, lawnmover.getPosition().getOrientation());
 
     }
 
@@ -50,15 +50,15 @@ public class LawnmoverTest {
 
         lawnmover.move("A"); // illegal move
 
-        assertEquals(new Coordinates(1,0), lawnmover.getCoordinates());
-        assertEquals(Orientation.South, lawnmover.getOrientation());
+        Assert.assertEquals(new Coordinates(1,0), lawnmover.getPosition().getCoordinates());
+        Assert.assertEquals(Orientation.South, lawnmover.getPosition().getOrientation());
 
          lawnmover = new Lawnmover(1,5, Orientation.North,area);
 
         lawnmover.move("A"); // illegal move
 
-        assertEquals(new Coordinates(1,5), lawnmover.getCoordinates());
-        assertEquals(Orientation.North, lawnmover.getOrientation());
+        Assert.assertEquals(new Coordinates(1,5), lawnmover.getPosition().getCoordinates());
+        Assert.assertEquals(Orientation.North, lawnmover.getPosition().getOrientation());
 
 
     }

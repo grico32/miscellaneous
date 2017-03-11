@@ -1,26 +1,22 @@
 package com.perso.entities;
 
+import com.perso.position.*;
+
 /**
  * Created by edarce on 09/03/2017.
  */
 public class Lawnmover {
 
     private final Area area;
-    private Coordinates coordinates;
-    private Orientation orientation=Orientation.North;
+
+    private PositionImpl position;
 
 
     public Lawnmover(int x, int y, Orientation orientation,Area area) {
-        coordinates=new Coordinates(x,y);
-        this.orientation =orientation;
+
+        position= new PositionImpl(x,y,orientation);
         this.area=area;
     }
-
-
-    public Coordinates getCoordinates() {return coordinates;}
-
-
-    public Orientation getOrientation() {return orientation;}
 
 
     public void move(String movements) {
@@ -28,35 +24,20 @@ public class Lawnmover {
         {
             char command = movements.charAt(i);
            if (command=='G')
-               orientation=orientation.rotateReverse();
+               position=position.rotateReverse();
            else
            if (command=='D')
-               orientation=orientation.rotateClockWise();
+               position=position.rotateClockWise();
            else
                if (command=='A')
-               updatePosition();
+               position.move(area);
         }
 
-        System.out.println(coordinates.toString()+" "+orientation.shortcut());
+        System.out.println(position.toString());
     }
 
-    private void updatePosition() {
 
-        switch (orientation)
-        {
-            case North:
-                coordinates=area.shiftCoordinates(coordinates,0,1);
-                break;
-            case South:
-                coordinates=area.shiftCoordinates(coordinates,0,-1);
-                break;
-            case East:
-                coordinates=area.shiftCoordinates(coordinates,1,0);
-                break;
-            case West:
-                coordinates=area.shiftCoordinates(coordinates,-1,0);
-                break;
-        }
+    public Position getPosition() {
+        return position;
     }
-
 }
